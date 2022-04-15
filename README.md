@@ -12,3 +12,6 @@ new function:
 
 对net4.5的支持
 Support for net4.5
+
+下载安装包 PMcProtocol
+Install-Package PMcProtocol
