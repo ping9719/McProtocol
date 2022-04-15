@@ -1,15 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>1.2.5.0</AssemblyVersion>
-    <FileVersion>1.2.5.0</FileVersion>
-    <Version>1.2.5</Version>
-    <Authors>Luke Mehringer</Authors>
+    <AssemblyVersion>1.2.6.0</AssemblyVersion>
+    <FileVersion>1.2.6.0</FileVersion>
+    <Version>1.2.6</Version>
+    <Authors>夏诗评,ping</Authors>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>https://www.gnu.org/licenses/lgpl-3.0.en.html</PackageLicenseUrl>
-    <Copyright>Luke Mehringer</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <Copyright></Copyright>
+    <PackageId>PMcProtocol</PackageId>
+    <Description>三菱MC协议实现
+Mitsubishi MC protocol implementation</Description>
   </PropertyGroup>
 
 </Project>
