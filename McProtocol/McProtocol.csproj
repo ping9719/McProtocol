@@ -1,18 +1,26 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <AssemblyVersion>1.2.6.0</AssemblyVersion>
     <FileVersion>1.2.6.0</FileVersion>
-    <Version>1.2.6</Version>
-    <Authors>夏诗评,ping</Authors>
+    <Version>1.2.7</Version>
+    <Authors>ping9719</Authors>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseUrl></PackageLicenseUrl>
     <Copyright></Copyright>
     <PackageId>PMcProtocol</PackageId>
-    <Description>三菱MC协议实现
-Mitsubishi MC protocol implementation</Description>
+    <Description>三菱MC协议实现(Mitsubishi MC protocol implementation)
+
+https://github.com/ping9719/McProtocol</Description>
+    <PackageProjectUrl>https://github.com/ping9719/McProtocol</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ping9719/McProtocol</RepositoryUrl>
+    <Company>ping9719</Company>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Mitsubishi\" />
+  </ItemGroup>
 
 </Project>

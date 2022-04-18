@@ -282,7 +282,7 @@ namespace MCProtocol
         // ########################################################################################
         abstract public class McProtocolApp : Plc
         {
-            public abstract bool Connected{ get; }
+            public abstract bool Connected { get; }
             // ====================================================================================
             public McFrame CommandFrame { get; set; }   // 使用フレーム
             public string HostName { get; set; }   // ホスト名またはIPアドレス
@@ -1112,7 +1112,7 @@ namespace MCProtocol
             {
                 get
                 {
-                    return Client.Connected;                    
+                    return Client.Connected;
                 }
             }
             public McProtocolTcp() : this("", 0, McFrame.MC3E) { }
@@ -1309,5 +1309,3 @@ namespace MCProtocol
 #endif
     }
 }
-
-
