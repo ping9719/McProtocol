@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>1.2.6.0</AssemblyVersion>
-    <FileVersion>1.2.6.0</FileVersion>
-    <Version>1.2.7</Version>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+    <Version>2.0.0</Version>
     <Authors>ping9719</Authors>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageLicenseUrl></PackageLicenseUrl>
@@ -20,7 +20,7 @@ https://github.com/ping9719/McProtocol</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Mitsubishi\" />
+    <Compile Remove="Mitsubishi\McProtocolUdp.cs" />
   </ItemGroup>
 
 </Project>
