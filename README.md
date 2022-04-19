@@ -77,8 +77,9 @@ var oDataNew2 = await mcProtocolTcp.GetBitDevice("M85", 10);//以位方式读取
 ## v2.0.0
 ###### 1.增加名称空间'McProtocol.Mitsubishi' [add using McProtocol.Mitsubishi]
 ###### 2.扩展接口IPlc方法 [interface IPlc add function]
+###### 3.更新文档 [Update document]
 ## v1.2.7
-###### 1.对net4.5的支持 [Support for net4.5]
+###### 1.更新文档 [Update document]
 ## v1.2.6
 ###### 1.对net4.5的支持 [Support for net4.5]
 
