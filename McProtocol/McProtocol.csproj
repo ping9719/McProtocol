@@ -1,26 +1,30 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-    <FileVersion>2.0.0.0</FileVersion>
-    <Version>2.0.0</Version>
-    <Authors>ping9719</Authors>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl></PackageLicenseUrl>
-    <Copyright></Copyright>
-    <PackageId>PMcProtocol</PackageId>
-    <Description>三菱MC协议实现(Mitsubishi MC protocol implementation)
-
+	<PropertyGroup>
+		<TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<AssemblyVersion>2.0.1.0</AssemblyVersion>
+		<FileVersion>2.0.1.0</FileVersion>
+		<Version>2.0.1</Version>
+		<Authors>ping9719</Authors>
+		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+		<PackageLicenseUrl></PackageLicenseUrl>
+		<Copyright></Copyright>
+		<PackageId>PMcProtocol</PackageId>
+		<Description>三菱MC协议实现(Mitsubishi MC protocol implementation)
 https://github.com/ping9719/McProtocol</Description>
-    <PackageProjectUrl>https://github.com/ping9719/McProtocol</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/ping9719/McProtocol</RepositoryUrl>
-    <Company>ping9719</Company>
-  </PropertyGroup>
+		<PackageProjectUrl>https://github.com/ping9719/McProtocol</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/ping9719/McProtocol</RepositoryUrl>
+		<Company>ping9719</Company>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Remove="Mitsubishi\McProtocolUdp.cs" />
-  </ItemGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net45|AnyCPU'">
+	  <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+	</PropertyGroup>
+	
+	<ItemGroup>
+		<Compile Remove="Mitsubishi\McProtocolUdp.cs" />
+	</ItemGroup>
 
 </Project>
