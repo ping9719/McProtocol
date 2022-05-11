@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace McProtocol.Mitsubishi
 {
+    /// <summary>
+    /// 
+    /// </summary>
     abstract public class McProtocolApp : IPlc
     {
         public abstract bool Connected { get; }
@@ -25,7 +28,12 @@ namespace McProtocol.Mitsubishi
 
         private const int BlockSize = 0x0010;
 
-        // コンストラクタ
+        /// <summary>
+        /// コンストラクタ
+        /// </summary>
+        /// <param name="iHostName"></param>
+        /// <param name="iPortNumber"></param>
+        /// <param name="frame"></param>
         protected McProtocolApp(string iHostName, int iPortNumber, McFrame frame)
         {
             CommandFrame = frame;
@@ -35,7 +43,9 @@ namespace McProtocol.Mitsubishi
             PortNumber = iPortNumber;
         }
 
-        // 後処理
+        /// <summary>
+        /// 後処理
+        /// </summary>
         public void Dispose()
         {
             Close();

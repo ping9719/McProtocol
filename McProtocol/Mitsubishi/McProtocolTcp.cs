@@ -59,30 +59,34 @@ namespace McProtocol.Mitsubishi
             }
         }
 
+        private readonly object balanceLock = new object();
         async override protected Task<byte[]> Execute(byte[] iCommand)
         {
-            List<byte> list = new List<byte>();
-
-            NetworkStream ns = Stream;
-            ns.Write(iCommand, 0, iCommand.Length);
-            ns.Flush();
-
-            using (var ms = new MemoryStream())
+            lock (balanceLock)
             {
-                var buff = new byte[256];
-                do
-                {
-                    int sz = ns.Read(buff, 0, buff.Length);
-                    if (sz == 0)
-                    {
-                        throw new Exception("切断されました");
-                    }
-                    ms.Write(buff, 0, sz);
-                }
-                while (ns.DataAvailable);
-                return ms.ToArray();
-            }
+                List<byte> list = new List<byte>();
 
+                NetworkStream ns = Stream;
+                ns.Write(iCommand, 0, iCommand.Length);
+                ns.Flush();
+
+                using (var ms = new MemoryStream())
+                {
+                    var buff = new byte[256];
+                    do
+                    {
+                        int sz = ns.Read(buff, 0, buff.Length);
+                        if (sz == 0)
+                        {
+                            throw new Exception("切断されました");
+                        }
+                        ms.Write(buff, 0, sz);
+                    }
+                    while (ns.DataAvailable);
+
+                    return ms.ToArray();
+                }
+            }
         }
     }
 }

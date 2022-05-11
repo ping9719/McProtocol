@@ -24,6 +24,12 @@ namespace McProtocol
         int Length;
         int LENGTH;//Length in bytes
         byte[] bytes;
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="DeviceType"></param>
+        /// <param name="Address"></param>
+        /// <param name="Length"></param>
         public PLCData(PlcDeviceType DeviceType, int Address, int Length = 1)
         {
             this.DeviceType = DeviceType;
@@ -70,6 +76,11 @@ namespace McProtocol
             this.bytes = new byte[this.LENGTH];
 
         }
+        /// <summary>
+        /// 获取数据
+        /// </summary>
+        /// <param name="i">数据所在索引</param>
+        /// <returns></returns>
         public T this[int i]
         {
             get
@@ -161,12 +172,18 @@ namespace McProtocol
                 }
             }
         }
-
+        /// <summary>
+        /// 写入数据
+        /// </summary>
+        /// <returns></returns>
         public async Task WriteData()
         {
             await PLC.WriteDeviceBlockByte(this.DeviceType, this.Address, Length, bytes);
         }
-
+        /// <summary>
+        /// 读取数据
+        /// </summary>
+        /// <returns></returns>
         public async Task ReadData()
         {
             this.bytes = await PLC.ReadDeviceBlockByte(DeviceType, this.Address, this.Length);
