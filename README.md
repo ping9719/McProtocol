@@ -25,7 +25,7 @@ WindowsFormsApp1/Form1.cs
 #
 
 ### 开始使用 [How To Use]
-#### 方式1（推荐）[Method 1,Recommend]
+#### 方式1[Method 1]
 ```CSharp
 using McProtocol;
 
