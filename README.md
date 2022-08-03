@@ -75,6 +75,8 @@ var oDataNew2 = await mcProtocolTcp.GetBitDevice("M85", 10);//以位方式读取
 #
 ### 版本记录：[version history]
 ###### *表示部分代码可能与前版本不兼容 [*For some code is incompatible with previous versions]
+## v2.1.6
+###### 1.开放 PLCData[T].Bytes，可用于获取元数据 [Public PLCData[T].Bytes]
 ## v2.1.5
 ###### 1.对.Net5的支持 [Support for net5]
 ## v2.1.0

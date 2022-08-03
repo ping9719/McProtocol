@@ -23,7 +23,10 @@ namespace McProtocol
         int Address;
         int Length;
         int LENGTH;//Length in bytes
-        byte[] bytes;
+        /// <summary>
+        /// 读取到的数据
+        /// </summary>
+        public byte[] Bytes { get; private set; }
         /// <summary>
         /// 
         /// </summary>
@@ -73,7 +76,7 @@ namespace McProtocol
                 default:
                     throw new Exception("Type not supported by PLC.");
             }
-            this.bytes = new byte[this.LENGTH];
+            this.Bytes = new byte[this.LENGTH];
 
         }
         /// <summary>
@@ -90,32 +93,32 @@ namespace McProtocol
                 switch (t)
                 {
                     case "Boolean":
-                        return (T)Convert.ChangeType(((this.bytes[i / 8] >> (i % 8)) % 2 == 1), typeof(T));
+                        return (T)Convert.ChangeType(((this.Bytes[i / 8] >> (i % 8)) % 2 == 1), typeof(T));
                     case "Int32":
-                        u.a = this.bytes[i * 4];
-                        u.b = this.bytes[i * 4 + 1];
-                        u.c = this.bytes[i * 4 + 2];
-                        u.d = this.bytes[i * 4 + 3];
+                        u.a = this.Bytes[i * 4];
+                        u.b = this.Bytes[i * 4 + 1];
+                        u.c = this.Bytes[i * 4 + 2];
+                        u.d = this.Bytes[i * 4 + 3];
                         return (T)Convert.ChangeType(u.DINT, typeof(T));
                     case "Int16":
-                        u.a = this.bytes[i * 2];
-                        u.b = this.bytes[i * 2 + 1];
+                        u.a = this.Bytes[i * 2];
+                        u.b = this.Bytes[i * 2 + 1];
                         return (T)Convert.ChangeType(u.INT, typeof(T));
                     case "UInt16":
-                        u.a = this.bytes[i * 2];
-                        u.b = this.bytes[i * 2 + 1];
+                        u.a = this.Bytes[i * 2];
+                        u.b = this.Bytes[i * 2 + 1];
                         return (T)Convert.ChangeType(u.UINT, typeof(T));
                     case "UInt32":
-                        u.a = this.bytes[i * 4];
-                        u.b = this.bytes[i * 4 + 1];
-                        u.c = this.bytes[i * 4 + 2];
-                        u.d = this.bytes[i * 4 + 3];
+                        u.a = this.Bytes[i * 4];
+                        u.b = this.Bytes[i * 4 + 1];
+                        u.c = this.Bytes[i * 4 + 2];
+                        u.d = this.Bytes[i * 4 + 3];
                         return (T)Convert.ChangeType(u.UDINT, typeof(T));
                     case "Single":
-                        u.a = this.bytes[i * 4];
-                        u.b = this.bytes[i * 4 + 1];
-                        u.c = this.bytes[i * 4 + 2];
-                        u.d = this.bytes[i * 4 + 3];
+                        u.a = this.Bytes[i * 4];
+                        u.b = this.Bytes[i * 4 + 1];
+                        u.c = this.Bytes[i * 4 + 2];
+                        u.d = this.Bytes[i * 4 + 3];
                         return (T)Convert.ChangeType(u.REAL, typeof(T));
                     case "Char":
                         return (T)Convert.ChangeType(this.ToString()[i], typeof(T));
@@ -131,41 +134,41 @@ namespace McProtocol
                 {
                     case "Boolean":
                         bool arg = Convert.ToBoolean(value);
-                        if (arg && (this.bytes[i / 8] >> (i % 8)) % 2 == 0)
-                            this.bytes[i / 8] += (byte)(1 << (i % 8));
-                        else if (!arg && (this.bytes[i / 8] >> (i % 8)) % 2 == 1)
-                            this.bytes[i / 8] -= (byte)(1 << (i % 8));
+                        if (arg && (this.Bytes[i / 8] >> (i % 8)) % 2 == 0)
+                            this.Bytes[i / 8] += (byte)(1 << (i % 8));
+                        else if (!arg && (this.Bytes[i / 8] >> (i % 8)) % 2 == 1)
+                            this.Bytes[i / 8] -= (byte)(1 << (i % 8));
                         return;
                     case "Int32":
                         u.DINT = Convert.ToInt32(value);
-                        this.bytes[i * 4] = u.a;
-                        this.bytes[i * 4 + 1] = u.b;
-                        this.bytes[i * 4 + 2] = u.c;
-                        this.bytes[i * 4 + 3] = u.d;
+                        this.Bytes[i * 4] = u.a;
+                        this.Bytes[i * 4 + 1] = u.b;
+                        this.Bytes[i * 4 + 2] = u.c;
+                        this.Bytes[i * 4 + 3] = u.d;
                         return;
                     case "Int16":
                         u.INT = Convert.ToInt16(value);
-                        this.bytes[i * 2] = u.a;
-                        this.bytes[i * 2 + 1] = u.b;
+                        this.Bytes[i * 2] = u.a;
+                        this.Bytes[i * 2 + 1] = u.b;
                         return;
                     case "UInt32":
                         u.UDINT = Convert.ToUInt32(value);
-                        this.bytes[i * 4] = u.a;
-                        this.bytes[i * 4 + 1] = u.b;
-                        this.bytes[i * 4 + 2] = u.c;
-                        this.bytes[i * 4 + 3] = u.d;
+                        this.Bytes[i * 4] = u.a;
+                        this.Bytes[i * 4 + 1] = u.b;
+                        this.Bytes[i * 4 + 2] = u.c;
+                        this.Bytes[i * 4 + 3] = u.d;
                         return;
                     case "UInt16":
                         u.UINT = Convert.ToUInt16(value);
-                        this.bytes[i * 2] = u.a;
-                        this.bytes[i * 2] = u.b;
+                        this.Bytes[i * 2] = u.a;
+                        this.Bytes[i * 2] = u.b;
                         return;
                     case "Single":
                         u.REAL = Convert.ToSingle(value);
-                        this.bytes[i * 4] = u.a;
-                        this.bytes[i * 4 + 1] = u.b;
-                        this.bytes[i * 4 + 2] = u.c;
-                        this.bytes[i * 4 + 3] = u.d;
+                        this.Bytes[i * 4] = u.a;
+                        this.Bytes[i * 4 + 1] = u.b;
+                        this.Bytes[i * 4 + 2] = u.c;
+                        this.Bytes[i * 4 + 3] = u.d;
                         return;
                     default:
                         throw new Exception("Type not recognized.");
@@ -173,20 +176,20 @@ namespace McProtocol
             }
         }
         /// <summary>
-        /// 写入数据
+        /// 开始写入数据
         /// </summary>
         /// <returns></returns>
         public async Task WriteData()
         {
-            await PLC.WriteDeviceBlockByte(this.DeviceType, this.Address, Length, bytes);
+            await PLC.WriteDeviceBlockByte(this.DeviceType, this.Address, Length, Bytes);
         }
         /// <summary>
-        /// 读取数据
+        /// 开始读取数据
         /// </summary>
         /// <returns></returns>
         public async Task ReadData()
         {
-            this.bytes = await PLC.ReadDeviceBlockByte(DeviceType, this.Address, this.Length);
+            this.Bytes = await PLC.ReadDeviceBlockByte(DeviceType, this.Address, this.Length);
         }
 
     }
