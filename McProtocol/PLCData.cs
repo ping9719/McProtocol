@@ -200,9 +200,9 @@ namespace McProtocol
         /// <param name="encoding">编码格式，如：Encoding.UTF8</param>
         /// <param name="hiLoReversal">高低位是否反转</param>
         /// <returns>字符串</returns>
-        public string GetStringData(byte[] bytes, Encoding encoding, bool hiLoReversal = false)
+        public string GetStringData(Encoding encoding, bool hiLoReversal = false)
         {
-            return ByteHelp.ByteToString(bytes, encoding, hiLoReversal);
+            return ByteHelp.ByteToString(Bytes, encoding, hiLoReversal);
         }
     }
 
