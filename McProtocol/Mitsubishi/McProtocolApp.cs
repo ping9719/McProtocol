@@ -64,6 +64,8 @@ namespace McProtocol.Mitsubishi
             return 0;
         }
 
+
+
         public async Task<int> SetBitDevice(string iDeviceName, int iSize, int[] iData)
         {
             PlcDeviceType type;

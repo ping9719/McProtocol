@@ -44,7 +44,7 @@ namespace WindowsFormsApp1
 
         #region Method 2
 
-        //推荐此方式，存储在静态字段 PLCData.PLC 中，全局使用
+        //此方式存储在静态字段 PLCData.PLC 中，全局使用
         //此方式的源文档：https://www.nuget.org/packages/McProtocol
         private async void button3_Click(object sender, EventArgs e)
         {
@@ -78,5 +78,9 @@ namespace WindowsFormsApp1
         }
 
         #endregion
+
+
+
+
     }
 }

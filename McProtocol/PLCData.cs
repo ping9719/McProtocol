@@ -176,14 +176,7 @@ namespace McProtocol
                 }
             }
         }
-        /// <summary>
-        /// 开始写入数据
-        /// </summary>
-        /// <returns></returns>
-        public async Task WriteData()
-        {
-            await PLC.WriteDeviceBlockByte(this.DeviceType, this.Address, Length, Bytes);
-        }
+
         /// <summary>
         /// 开始读取数据
         /// </summary>
@@ -194,16 +187,25 @@ namespace McProtocol
         }
 
         /// <summary>
-        /// 将Bytes转为字符串
+        /// 开始写入数据
         /// </summary>
-        /// <param name="bytes">byte数组</param>
-        /// <param name="encoding">编码格式，如：Encoding.UTF8</param>
-        /// <param name="hiLoReversal">高低位是否反转</param>
-        /// <returns>字符串</returns>
-        public string GetStringData(Encoding encoding, bool hiLoReversal = false)
+        /// <returns></returns>
+        public async Task WriteData()
         {
-            return ByteHelp.ByteToString(Bytes, encoding, hiLoReversal);
+            await PLC.WriteDeviceBlockByte(this.DeviceType, this.Address, Length, Bytes);
         }
+
+
+        ///// <summary>
+        ///// 将Bytes转为字符串
+        ///// </summary>
+        ///// <param name="encoding">编码格式，如：Encoding.UTF8</param>
+        ///// <param name="hiLoReversal">高低位是否反转</param>
+        ///// <returns>字符串</returns>
+        //public string GetStringData(Encoding encoding, bool hiLoReversal = false)
+        //{
+        //    return ByteHelp.ByteToString(Bytes, encoding, hiLoReversal);
+        //}
     }
 
 }

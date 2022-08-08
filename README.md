@@ -25,9 +25,30 @@ WindowsFormsApp1/Form1.cs
 #
 
 ### 开始使用 [How To Use]
-#### 方式1[Method 1]
+
+#### 方式1 [Method 1]
+```CSharp
+using McProtocol.Mitsubishi;
+
+McProtocolTcp mcProtocolTcp = new McProtocolTcp("192.168.100.109", 1025, McFrame.MC3E);
+await mcProtocolTcp.Open();
+
+//通用方法（可能会淘汰，以后使用泛型的方式）
+int[] oData1 = new int[10];//数据
+await mcProtocolTcp.ReadDeviceBlock("D14520", 10, oData1);
+int[] oData2 = new int[10];//数据
+await mcProtocolTcp.GetBitDevice("M85", 10, oData2);
+
+//版本v2.0以后的新扩展方法
+var oDataNew1 = await mcProtocolTcp.ReadDeviceBlock("D7500", 10);//以int16方式读取10个
+var oDataNew2 = await mcProtocolTcp.GetBitDevice("M85", 10);//以位方式读取10个
+```
+
+#### 方式2[Method 2]
 ```CSharp
 using McProtocol;
+
+//可能会淘汰，此方式存在一个程序只能存在一个的问题
 
 //存储在静态字段 PLCData.PLC 中，全局使用
 PLCData.PLC = new McProtocolTcp("192.168.100.109", 1025, McFrame.MC3E);
@@ -55,23 +76,7 @@ ints2[0] = 3;
 await ints2.WriteData();
 ```
 
-#### 方式2 [Method 2]
-```CSharp
-using McProtocol.Mitsubishi;
 
-McProtocolTcp mcProtocolTcp = new McProtocolTcp("192.168.100.109", 1025, McFrame.MC3E);
-await mcProtocolTcp.Open();
-
-//通用方法
-int[] oData1 = new int[10];//数据
-await mcProtocolTcp.ReadDeviceBlock("D14520", 10, oData1);
-int[] oData2 = new int[10];//数据
-await mcProtocolTcp.GetBitDevice("M85", 10, oData2);
-
-//版本v2.0以后的新扩展方法
-var oDataNew1 = await mcProtocolTcp.ReadDeviceBlock("D7500", 10);//以int16方式读取10个
-var oDataNew2 = await mcProtocolTcp.GetBitDevice("M85", 10);//以位方式读取10个
-```
 #
 ### 版本记录：[version history]
 ###### *表示部分代码可能与前版本不兼容 [*For some code is incompatible with previous versions]

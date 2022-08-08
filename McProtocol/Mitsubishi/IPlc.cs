@@ -101,5 +101,21 @@ namespace McProtocol.Mitsubishi
         Task WriteDeviceBlock(PlcDeviceType iType, int iAddress, params int[] iData);
 
         #endregion
+
+        #region 扩展(v2.2)
+
+        //Task<T> GetData<T>(string name);
+        //void SetData<T>(string name, T data);
+        //Task<T> GetData<T>(PlcDeviceType iType, int iAddress);
+        //void SetData<T>(PlcDeviceType iType, int iAddress, T data);
+
+        //Task<string> GetData(string name, int iSize, Encoding encoding, bool hiLoReversal = false);
+        //Task<string> GetData(PlcDeviceType iType, int iAddress, int iSize, Encoding encoding, bool hiLoReversal = false);
+
+        //Task<List<T>> GetData<T>(string name, int iSize);
+        //void SetData<T>(string name, int iSize, T data);
+        //Task<T> GetData<T>(PlcDeviceType iType, int iAddress, int iSize);
+        //void SetData<T>(PlcDeviceType iType, int iAddress, int iSize, T data);
+        #endregion
     }
 }
