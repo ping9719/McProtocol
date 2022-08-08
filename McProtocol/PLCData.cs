@@ -1,4 +1,5 @@
-﻿using McProtocol.Mitsubishi;
+﻿using McProtocol.Help;
+using McProtocol.Mitsubishi;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -192,6 +193,17 @@ namespace McProtocol
             this.Bytes = await PLC.ReadDeviceBlockByte(DeviceType, this.Address, this.Length);
         }
 
+        /// <summary>
+        /// 将Bytes转为字符串
+        /// </summary>
+        /// <param name="bytes">byte数组</param>
+        /// <param name="encoding">编码格式，如：Encoding.UTF8</param>
+        /// <param name="hiLoReversal">高低位是否反转</param>
+        /// <returns>字符串</returns>
+        public string GetStringData(byte[] bytes, Encoding encoding, bool hiLoReversal = false)
+        {
+            return ByteHelp.ByteToString(bytes, encoding, hiLoReversal);
+        }
     }
 
 }
