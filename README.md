@@ -15,12 +15,6 @@
 Install-Package PMcProtocol
 ```
 
-### 列子 [ensample code]
-```CSharp
-WindowsFormsApp1/Form1.cs
-```
-#
-
 ### 开始使用 [How To Use]
 
 ```CSharp
