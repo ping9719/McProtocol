@@ -4,9 +4,9 @@
 		<TargetFrameworks>net45;netstandard2.0</TargetFrameworks>
 		<GenerateDocumentationFile>true</GenerateDocumentationFile>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<AssemblyVersion>2.1.6.0</AssemblyVersion>
-		<FileVersion>2.1.6.0</FileVersion>
-		<Version>2.1.6</Version>
+		<AssemblyVersion>2.1.7.0</AssemblyVersion>
+		<FileVersion>2.1.7.0</FileVersion>
+		<Version>2.1.7</Version>
 		<Authors>ping9719</Authors>
 		<PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
 		<PackageLicenseUrl></PackageLicenseUrl>
