@@ -22,12 +22,12 @@ namespace McProtocol.Mitsubishi
             }
         }
 
-        public McProtocolTcp() : this("", 0, McFrame.MC3E)
+        public McProtocolTcp() : this("127.0.0.1", 6000, McFrame.MC3E)
         {
 
         }
 
-        public McProtocolTcp(string iHostName, int iPortNumber, McFrame frame) : base(iHostName, iPortNumber, frame)
+        public McProtocolTcp(string iHostName, int iPortNumber = 6000, McFrame frame = McFrame.MC3E) : base(iHostName, iPortNumber, frame)
         {
             CommandFrame = frame;
             Client = new TcpClient();

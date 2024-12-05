@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>McProtocol</name>
+    </assembly>
+    <members>
+        <member name="T:McProtocol.Mitsubishi.IPlc">
+            <summary>
+            PLCと接続するための共通のインターフェースを定義する
+            </summary>
+        </member>
+        <member name="T:McProtocol.Mitsubishi.McFrame">
+            <summary>
+            const int frameSize = 14;//11, 15, 20
+            </summary>
+        </member>
+        <member name="P:McProtocol.Mitsubishi.McProtocolApp.CommandFrame">
+            <summary>
+            使用フレーム
+            </summary>
+        </member>
+        <member name="P:McProtocol.Mitsubishi.McProtocolApp.HostName">
+            <summary>
+            ホスト名またはIPアドレス
+            </summary>
+        </member>
+        <member name="P:McProtocol.Mitsubishi.McProtocolApp.PortNumber">
+            <summary>
+            ポート番号
+            </summary>
+        </member>
+        <member name="M:McProtocol.Mitsubishi.McProtocolApp.GetBitDevice(System.String,System.Int32)">
+            <summary>
+            得到字节数据
+            </summary>
+            <param name="iDeviceName">如：M1000</param>
+            <param name="iSize">读取长度：>0</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:McProtocol.Mitsubishi.McProtocolApp.GetBitDevice(McProtocol.Mitsubishi.PlcDeviceType,System.Int32,System.Int32)">
+            <summary>
+            得到字节数据
+            </summary>
+            <param name="iType">设备类型，如：M</param>
+            <param name="iAddress">如：M1000</param>
+            <param name="iSize">读取长度：>0</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:McProtocol.Mitsubishi.McProtocolApp.SetBitDevice(System.String,System.Int32[])">
+            <summary>
+            设置字节数据
+            </summary>
+            <param name="iDeviceName">如：M1000</param>
+            <param name="iData">设置的数据</param>
+        </member>
+        <member name="M:McProtocol.Mitsubishi.McProtocolApp.SetBitDevice(McProtocol.Mitsubishi.PlcDeviceType,System.Int32,System.Int32[])">
+            <summary>
+            设置字节数据
+            </summary>
+            <param name="iType">设备类型，如：M</param>
+            <param name="iAddress">如：M1000</param>
+            <param name="iData">设置的数据</param>
+        </member>
+        <member name="M:McProtocol.Mitsubishi.McProtocolApp.ReadDeviceBlock(System.String,System.Int32)">
+            <summary>
+            得到数据块
+            </summary>
+            <param name="iDeviceName">如：D1000</param>
+            <param name="iSize">读取长度：>0</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:McProtocol.Mitsubishi.McProtocolApp.ReadDeviceBlock(McProtocol.Mitsubishi.PlcDeviceType,System.Int32,System.Int32)">
+            <summary>
+            得到数据块
+            </summary>
+            <param name="iType">设备类型，如：D</param>
+            <param name="iAddress">如：D1000</param>
+            <param name="iSize">读取长度：>0</param>
+            <returns>数据</returns>
+        </member>
+        <member name="M:McProtocol.Mitsubishi.McProtocolApp.WriteDeviceBlock(System.String,System.Int32[])">
+            <summary>
+            写入数据块
+            </summary>
+            <param name="iDeviceName">如：D1000</param>
+            <param name="iData">写入10进制数据</param>
+        </member>
+        <member name="M:McProtocol.Mitsubishi.McProtocolApp.WriteDeviceBlock(McProtocol.Mitsubishi.PlcDeviceType,System.Int32,System.Int32[])">
+            <summary>
+            写入数据块
+            </summary>
+            <param name="iType">设备类型，如：D</param>
+            <param name="iAddress">如：D1000</param>
+            <param name="iData">写入10进制数据</param>
+        </member>
+        <member name="T:McProtocol.Mitsubishi.PlcDeviceType">
+            <summary>
+            PLCデバイスの種類を定義した列挙体
+            </summary>
+        </member>
+        <member name="T:McProtocol.PLCData`1">
+            <summary>
+            初始化。T：Boolean，Int16，Int32，UInt16，UInt32，Single，Double，Char
+            </summary>
+            <typeparam name="T">T：Boolean，Int16，Int32，UInt16，UInt32，Single，Double，Char</typeparam>
+        </member>
+    </members>
+</doc>
