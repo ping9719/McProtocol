@@ -36,7 +36,7 @@ await mcProtocolTcp.Open();
 //方式1（v>=2.0）
 var oDataNew1 = await mcProtocolTcp.ReadDeviceBlock("D7500", 10);//以int16方式读取10个
 var oDataNew2 = await mcProtocolTcp.GetBitDevice("M85", 10);//以位方式读取10个
-await mcProtocolTcp.SetDeviceBlock("D7500", 1);//写
+await mcProtocolTcp.SetDevice("D7500", 1);//写
 await mcProtocolTcp.SetBitDevice("M85", 1);//写
 
 //方式2（历史遗留）
