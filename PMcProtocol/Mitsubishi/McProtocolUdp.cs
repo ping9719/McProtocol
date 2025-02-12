@@ -7,7 +7,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace McProtocol.Mitsubishi
+namespace PMcProtocol.Mitsubishi
 {
     public class McProtocolUdp : McProtocolApp
     {

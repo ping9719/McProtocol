@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace McProtocol.Mitsubishi
+namespace PMcProtocol.Mitsubishi
 {
     /// <summary>
     /// PLCデバイスの種類を定義した列挙体

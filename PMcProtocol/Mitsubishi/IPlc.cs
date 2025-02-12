@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace McProtocol.Mitsubishi
+namespace PMcProtocol.Mitsubishi
 {
     /// <summary>
     /// PLCと接続するための共通のインターフェースを定義する
